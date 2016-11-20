@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -118,7 +118,7 @@ public class MigrationHelper {
 	 */
 	public static int importUsers(Document document) throws ParseException {
 		int ret = 0;
-		Random rand = new Random();
+		SecureRandom rand = new SecureRandom();
 		UserService us = Context.getUserService();
 		
 		List<Node> toAdd = new ArrayList<Node>();
@@ -199,7 +199,7 @@ public class MigrationHelper {
 		UserService us = Context.getUserService();
 		PersonService personService = Context.getPersonService();
 		List<Relationship> relsToAdd = new ArrayList<Relationship>();
-		Random rand = new Random();
+		SecureRandom rand = new SecureRandom();
 		for (String s : relationships) {
 			if (s.indexOf(":") >= 0) {
 				s = s.substring(s.indexOf(":") + 1);
