@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -1560,7 +1560,7 @@ public class OpenmrsUtil {
 	 * @return file new file that is able to be written to
 	 */
 	public static File getOutFile(File dir, Date date, User user) {
-		Random gen = new Random();
+		SecureRandom gen = new SecureRandom();
 		File outFile;
 		do {
 			// format to print date in filenmae
@@ -1603,7 +1603,7 @@ public class OpenmrsUtil {
 	 * @return unique string
 	 */
 	public static String generateUid(Integer size) {
-		Random gen = new Random();
+		SecureRandom gen = new SecureRandom();
 		StringBuffer sb = new StringBuffer(size);
 		for (int i = 0; i < size; i++) {
 			int ch = gen.nextInt() * 62;
