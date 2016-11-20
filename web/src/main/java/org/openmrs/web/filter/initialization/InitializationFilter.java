@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.zip.ZipInputStream;
 
 import javax.servlet.FilterChain;
@@ -1428,7 +1428,7 @@ public class InitializationFilter extends StartupFilter {
 							// generate random password from this subset of alphabet
 							// intentionally left out these characters: ufsb$() to prevent certain words forming randomly
 							String chars = "acdeghijklmnopqrtvwxyzACDEGHIJKLMNOPQRTVWXYZ0123456789.|~@#^&";
-							Random r = new Random();
+							SecureRandom r = new SecureRandom();
 							StringBuilder randomStr = new StringBuilder("");
 							for (int x = 0; x < 12; x++) {
 								randomStr.append(chars.charAt(r.nextInt(chars.length())));
